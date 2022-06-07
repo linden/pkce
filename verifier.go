@@ -27,7 +27,7 @@ func CreateCodeVerifierWithLength(length int) (*CodeVerifier, error) {
 	if length < MinLength || length > MaxLength {
 		return nil, fmt.Errorf("invalid length: %v", length)
 	}
-	buf, err := randomBytes(length)
+	buf, err := RandomBytes(length)
 	if err != nil {
 		return nil, fmt.Errorf("failed to generate random bytes: %v", err)
 	}
@@ -63,7 +63,7 @@ func encode(msg []byte) string {
 }
 
 // https://tools.ietf.org/html/rfc7636#section-4.1)
-func randomBytes(length int) ([]byte, error) {
+func RandomBytes(length int) ([]byte, error) {
 	const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
 	const csLen = byte(len(charset))
 	output := make([]byte, 0, length)
