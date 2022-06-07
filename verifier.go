@@ -1,4 +1,4 @@
-package go_oauth_pkce_code_verifier
+package pkce
 
 import (
 	"crypto/rand"
